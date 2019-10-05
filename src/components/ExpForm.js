@@ -1,9 +1,10 @@
 import React from 'react'
 import { MdSend } from 'react-icons/md'
 
-const ExpForm = () => {
+const ExpForm = props => {
+  const { charge, amount, handleCharge, handleAmount, handleSubmit } = props
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className='form-center'>
         <div className='form-group'>
           <label htmlFor='expense'>charge</label>
@@ -13,22 +14,26 @@ const ExpForm = () => {
             id='charge'
             name='charge'
             placeholder='input charge here......'
+            value={charge}
+            onChange={handleCharge}
           />
         </div>
         <div className='form-group'>
           <label htmlFor='expense'>amount</label>
           <input
-            type='text'
+            type='number'
             className='form-control'
             id='amount'
             name='amount'
             placeholder='input amount here......'
+            value={amount}
+            onChange={handleAmount}
           />
         </div>
       </div>
       <button type='submit' className='btn'>
         submit
-        <MdSend/>
+        <MdSend />
       </button>
     </form>
   )

@@ -7,7 +7,7 @@ const ExpItem = ({ exp }) => {
     <li className='item'>
       <div className='info'>
         <span className='exp'>{charge}</span>
-        <span className='amount'>{amount}</span>
+        <span className='amount'>${amount}</span>
       </div>
       <button className='edit-btn' aria-label='edit button'>
         <MdEdit />
