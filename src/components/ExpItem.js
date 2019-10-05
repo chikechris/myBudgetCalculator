@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ExpItems = () => {
+const ExpItem = () => {
   return (
     <div>
-      ExpItems
+      ExpItem
     </div>
   )
 }
 
-export default ExpItems
+export default ExpItem

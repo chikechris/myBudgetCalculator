@@ -1,9 +1,11 @@
 import React from 'react'
+import Item from './ExpItem'
 
 const ExpList = () => {
   return (
     <div>
-      ExpList
+    ExpList
+      <Item />
     </div>
   )
 }
