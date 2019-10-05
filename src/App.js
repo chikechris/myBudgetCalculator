@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ExpList from './components/ExpList'
 import ExpForm from './components/ExpForm'
 import Alert from './components/Alert'
@@ -13,15 +13,26 @@ const initialExps = [
 ]
 
 function App () {
+  const [exps, setExp] = useState(initialExps)
 
-  const [exp, setExp] = useState(initialExps)
-  console.log('state:', exp)
   return (
-    <div>
+    <>
       <Alert />
-      <ExpForm />
-      <ExpList />
-    </div>
+      <h1>Budget App</h1>
+      <main className='App'>
+        <ExpForm />
+        <ExpList exps={exps} />
+      </main>
+      <h1>
+        total spending:{' '}
+        <span className='total'>
+          $
+          {exps.reduce((acc, curr) => {
+            return (acc += curr.amount)
+          }, 0)}
+        </span>
+      </h1>
+    </>
   )
 }
 

@@ -1,12 +1,21 @@
 import React from 'react'
 import Item from './ExpItem'
-
-const ExpList = () => {
+import { MdDelete } from 'react-icons/md'
+const ExpList = ({ exps }) => {
   return (
-    <div>
-    ExpList
-      <Item />
-    </div>
+    <>
+      <ul className='list'>
+        {exps.map(exp => {
+          return <Item key={exp.id} exp={exp} />
+        })}
+      </ul>
+      {exps.length > 0 && (
+        <button className='btn'>
+          clear expenses
+          <MdDelete className='btn-icon' />
+        </button>
+      )}
+    </>
   )
 }
 
