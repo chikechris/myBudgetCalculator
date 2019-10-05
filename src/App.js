@@ -17,6 +17,8 @@ function App () {
   const [charge, setCharge] = useState('')
   const [amount, setAmount] = useState('')
   const [alert, setAlert] = useState({show:false})
+  const [edit, setEdit] = useState(false)
+  
 
   const handleCharge = e => {
     setCharge(e.target.value)
@@ -45,14 +47,26 @@ function App () {
       handleAlert({type: 'danger', text:'charge cant be empty and amount has to be bigger than zero'})
     }
   }
+const handleClearItems = () => {
+  setExp([])
+ handleAlert({ type: 'danger', text: 'All items deleted' })
+ 
+}
 
-  // 
+  const handleDelete = (id) =>{
+const tempExp = exps.filter(item => item.id !== id)
+setExp(tempExp)
+handleAlert({type: 'danger', text: 'Item deleted'})
+  }
+
+  const handleEdit = id => {}
+
 
   return (
     <>
     {alert.show && <Alert type={alert.type} text={alert.text}/>}
       <Alert />
-      <h1>Budget App</h1>
+      <h1>My Budget App Calculator</h1>
       <main className='App'>
         <ExpForm
           charge={charge}
@@ -61,7 +75,7 @@ function App () {
           handleAmount={handleAmount}
           handleSubmit={handleSubmit}
         />
-        <ExpList exps={exps} />
+        <ExpList exps={exps} handleDelete={handleDelete} handleEdit={handleEdit} handleClearItems={handleClearItems}/>
       </main>
       <h1>
         total spending:{' '}
