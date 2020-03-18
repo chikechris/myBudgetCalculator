@@ -14,19 +14,19 @@ const ExpForm = props => {
     <form onSubmit={handleSubmit}>
       <div className='form-center'>
         <div className='form-group'>
-          <label htmlFor='expense'>name of charge</label>
+          <label htmlFor='expense'>Items</label>
           <input
             type='text'
             className='form-control'
             id='charge'
             name='charge'
-            placeholder='input charge here......'
+            placeholder='input item here......'
             value={charge}
             onChange={handleCharge}
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='expense'>charge amount</label>
+          <label htmlFor='expense'>Amount of Items</label>
           <input
             type='number'
             className='form-control'
